@@ -18,8 +18,8 @@ public class SortMain {
     public static void main(String[] args) {
         // TODO code application logic here
         Sort main = new Sort();
-        main.generarNumeros();
-        System.out.println(main.numeros[2999]);
+        main.generarNumeros("texto.txt");
+        //System.out.println(main.numeros[2999]);
     }
     
 }
