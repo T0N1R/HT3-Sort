@@ -18,13 +18,14 @@ public class Sort {
     
     int ordenado[] = new int[3000];
     
+
     
     /**
      * metodo generarNumeros se utiliza para generar numeros entre 0 y 3000
      * se crea un objeto tipo Random. aleatorio.nextInt(limite) creara un 
      * numero entero entre 0 y el numero agregado -1.
      */
-    public void generarNumeros(String texto){
+    public void generarNumeros(String texto){ 
         
         File f;
         FileWriter w;
@@ -62,7 +63,64 @@ public class Sort {
 
     }
     
-    public void gnomeSort(){
+    public void gnomeSort(int[] arreglo, String texto){
+        /**En el gnome Sort, se empieza contando desde el segundo número
+         */
+        
+        int pos = 1;
+        while(pos <= 2999){
+            if(arreglo[pos]>=arreglo[pos-1]){
+                /**
+                 * si el numero de adelante es mayor que el numero de atras,
+                 * ir a la siguiente posicion
+                 */ 
+                pos++;
+            }else{
+                /**
+                 * en el caso de que el numero sea menor que el numero de atras, 
+                 * intercambiar los valores de esas posiciones y retroceder de posicion
+                 * se retrocede de posicon para ver si el otro numero detras es mayor o menor.
+                 */
+                
+                int numMenor = arreglo[pos];
+                int numMayor = arreglo[pos-1];
+                
+                arreglo[pos] = numMayor;
+                arreglo[pos-1]=numMenor;
+                
+                if(pos == 0){
+                    pos ++;
+                }else{
+                    pos --;
+                }
+            }
+        }
+        
+        /**
+         * Despues de ordenar todo el arreglo, se ingresaran todos los valores
+         * en texto.txt.
+         */
+        File f;
+        FileWriter w;
+        BufferedWriter bw;
+        PrintWriter wr;
+        
+        try{
+            f = new File (texto);
+            
+            w = new FileWriter(f);
+            
+            bw = new BufferedWriter(w);
+            
+            wr = new PrintWriter(bw);
+            
+            for (int i=0 ; i<2999; i++){
+                int x = arreglo[i];
+                wr.println(String.valueOf(x));
+            }
+        }catch(IOException e){
+            System.out.println("Hay un problema con el metodo");
+        }
         
     }
     
