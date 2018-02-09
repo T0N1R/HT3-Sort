@@ -63,6 +63,7 @@ public class Sort {
 
     }
     
+    
     public void gnomeSort(int[] arreglo, String texto){
         /**En el gnome Sort, se empieza contando desde el segundo número
          */
