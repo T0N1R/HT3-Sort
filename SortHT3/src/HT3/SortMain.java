@@ -35,6 +35,7 @@ public class SortMain {
                     salida = true;
                     break;
                 }
+                
                 case "1":{
                     main.generarNumeros("texto.txt");
                     System.out.println("Se generaron los numeros aleatorios");
