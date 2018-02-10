@@ -73,6 +73,10 @@ public class SortMain {
                     System.out.println("Numeros ordenados por Quicksort");
                     main.quicksort(numeros);
                     ordenados = numeros;
+                    
+                    for (int i=0; i<ordenados.length; i++) {
+                    	System.out.println(ordenados[i]);
+                    }
                     break;
                 }
                 
