@@ -22,11 +22,13 @@ public class SortMain {
         
         Scanner scan = new Scanner(System.in);
         boolean salida = false;
-        
+        System.out.println(main.numeros.length);
         while(salida == false){
             System.out.println("Ingrese la accion que se desea realizar: ");
             System.out.println("1---Generar los numeros aleatorios");
             System.out.println("2---Ordenar los numeros por Gnome Sort");
+            System.out.println("3---Ordenar los numeros por Bubble Sort");
+            System.out.println("4---Ordenar los numeros por Merge Sort");
             String eleccion = scan.nextLine();
             
             switch(eleccion){
@@ -42,7 +44,6 @@ public class SortMain {
                     System.out.println("");
                     System.out.println("");
                     System.out.println("---------------------------------------");
-                    System.out.println(main.numeros[2999]);
                     break;
                 }
             
@@ -50,6 +51,17 @@ public class SortMain {
                     System.out.println("numeros ordenados por GnomeSort");
                     main.gnomeSort(main.numeros, "texto.txt");
                     break;
+                }
+                
+                case "3":{
+                    System.out.println("Numeros ordenados por bubbleSort");
+                    main.bubbleSort(main.numeros, "texto.txt");
+                    break;
+                }
+                
+                case "4":{
+                    System.out.println("Numeros ordenados por MergeSort");
+                    main.mergeSort(main.numeros, "texto.txt");
                 }
             }
         }
