@@ -20,6 +20,8 @@ public class SortMain {
     public static void main(String[] args) {
         // TODO code application logic here
         Sort main = new Sort();
+        int[] numeros = main.numeros;
+        int[] ordenados = main.ordenados;
         
         Scanner scan = new Scanner(System.in);
         boolean salida = false;
@@ -30,6 +32,7 @@ public class SortMain {
             System.out.println("2---Ordenar los numeros por Gnome Sort");
             System.out.println("3---Ordenar los numeros por Bubble Sort");
             System.out.println("4---Ordenar los numeros por Merge Sort");
+            System.out.println("4---Ordenar los numeros por Quick Sort");
             String eleccion = scan.nextLine();
             
             switch(eleccion){
@@ -68,6 +71,8 @@ public class SortMain {
                 
                 case "5":{
                     System.out.println("Numeros ordenados por Quicksort");
+                    main.quicksort(numeros);
+                    ordenados = numeros;
                 }
                 
                 
