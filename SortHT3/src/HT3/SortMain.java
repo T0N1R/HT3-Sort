@@ -32,7 +32,7 @@ public class SortMain {
             System.out.println("2---Ordenar los numeros por Gnome Sort");
             System.out.println("3---Ordenar los numeros por Bubble Sort");
             System.out.println("4---Ordenar los numeros por Merge Sort");
-            System.out.println("4---Ordenar los numeros por Quick Sort");
+            System.out.println("5---Ordenar los numeros por Quick Sort");
             String eleccion = scan.nextLine();
             
             switch(eleccion){

@@ -10,7 +10,7 @@ import java.io.*;
  * @author Antonio
  * @author Claude Calewart
  */
-public class Sort {
+public class Sort implements Comparable {
     /**
      * Se crean dos arreglos, un arreglo donde se colocaran los 3000 numeros aleatorios.
      * El otro arreglo se encargara de ordenarlos (se utilizaran diferentes sorts).
@@ -306,6 +306,14 @@ public class Sort {
         
         
     }
+
+
+	//METODO COMPARABLE
+    
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
     
 
     
