@@ -63,6 +63,7 @@ public class SortMain {
                 case "4":{
                     System.out.println("Numeros ordenados por MergeSort");
                     main.mergeSort(main.numeros, "texto.txt");
+                    break;
                 }
             }
         }
