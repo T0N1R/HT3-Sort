@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  *
  * @author Antonio
- * @author Claude Calewart
+ * @author Claude Calewaert
  */
 public class SortMain {
 
