@@ -19,8 +19,29 @@ public class Sort implements Comparable {
     
     int[] ordenados = new int[3000];
 
+    //Getts and Setts
     
-    /**
+    public int[] getNumeros() {
+		return numeros;
+	}
+
+
+	public void setNumeros(int[] numeros) {
+		this.numeros = numeros;
+	}
+
+
+	public int[] getOrdenados() {
+		return ordenados;
+	}
+
+
+	public void setOrdenados(int[] ordenados) {
+		this.ordenados = ordenados;
+	}
+
+
+	/**
      * metodo generarNumeros se utiliza para generar numeros entre 0 y 3000
      * se crea un objeto tipo Random. aleatorio.nextInt(limite) creara un 
      * numero entero entre 0 y el numero agregado -1.
@@ -70,7 +91,7 @@ public class Sort implements Comparable {
      * @param arreglo
      * @param texto 
      */
-    public void gnomeSort(int[] arreglo, String texto){
+    public int[] gnomeSort(int[] arreglo, String texto){
         /**En el gnome Sort, se empieza contando desde el segundo número
          */
         int i =0;
@@ -120,6 +141,7 @@ public class Sort implements Comparable {
         }catch(IOException e){
             System.out.println("Hay un problema con el metodo");
         }
+		return arreglo;
         
     }
     
@@ -150,7 +172,7 @@ public class Sort implements Comparable {
         
         nuevoOrden = merge(mitadIzquierda, mitadDerecha);
         
-        //return nuevoOrden;
+        
         
         File f;
         FileWriter w;
@@ -173,7 +195,8 @@ public class Sort implements Comparable {
         }catch(IOException e){
             System.out.println("Hay un problema con el metodo");
         }
-        return null;
+		return nuevoOrden;
+        
     }
     
     public int[] merge(int[] mitadIzquierda, int[] mitadDerecha){
@@ -260,7 +283,7 @@ public class Sort implements Comparable {
     }
     
     
-    public void bubbleSort(int[] arreglo, String texto){
+    public int[] bubbleSort(int[] arreglo, String texto){
         for(int i = 1; i < arreglo.length; i++){
             for(int j = 0; j<arreglo.length-i;j++){
                 if(arreglo[j]>arreglo[j+1]){
@@ -303,6 +326,7 @@ public class Sort implements Comparable {
         }catch(IOException e){
             System.out.println("Hay un problema con el metodo");
         }
+		return arreglo;
         
         
     }

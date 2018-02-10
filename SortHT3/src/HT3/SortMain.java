@@ -1,4 +1,5 @@
 package HT3;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -20,8 +21,8 @@ public class SortMain {
     public static void main(String[] args) {
         // TODO code application logic here
         Sort main = new Sort();
-        int[] numeros = main.numeros;
-        int[] ordenados = main.ordenados;
+        int[] numeros = main.getNumeros();
+       
         
         Scanner scan = new Scanner(System.in);
         boolean salida = false;
@@ -71,12 +72,10 @@ public class SortMain {
                 
                 case "5":{
                     System.out.println("Numeros ordenados por Quicksort");
-                    main.quicksort(numeros);
-                    ordenados = numeros;
                     
-                    for (int i=0; i<ordenados.length; i++) {
-                    	System.out.println(ordenados[i]);
-                    }
+                    main.quicksort(numeros);
+                    
+                 
                     break;
                 }
                 
