@@ -231,7 +231,7 @@ public class Sort {
     
     //----METODO QUICKSORT---//
     
-    public static void Quicksort(int[] arreglo){
+    public static void quicksort(int[] arreglo){
     // devuelve: los valores en arreglo[] en orden ascendente
 
     	quickSortRecurrente(arreglo,0,arreglo.length-1);
