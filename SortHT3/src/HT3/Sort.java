@@ -8,16 +8,16 @@ import java.io.*;
  * Algoritmos y Estructuras de Datos
  * Hoja de Trabajo 3
  * @author Antonio
- * @author Claude Calewaert
+ * @author Claude Calewart
  */
 public class Sort {
     /**
      * Se crean dos arreglos, un arreglo donde se colocaran los 3000 numeros aleatorios.
      * El otro arreglo se encargara de ordenarlos (se utilizaran diferentes sorts).
      */
-    Comparable[] numeros = new Comparable[3000];
+    int[] numeros = new int[3000];
     
-    
+    int[] ordenados = new int[3000];
 
     
     /**
@@ -70,7 +70,7 @@ public class Sort {
      * @param arreglo
      * @param texto 
      */
-    public void gnomeSort(Comparable[] arreglo, String texto){
+    public void gnomeSort(int[] arreglo, String texto){
         /**En el gnome Sort, se empieza contando desde el segundo número
          */
         int i =0;
@@ -80,12 +80,12 @@ public class Sort {
                 i++;
             }
                 
-            if(arreglo[i-1].compareTo(arreglo[i])<=0){
+            if(arreglo[i-1]<=arreglo[i]){
                 i=pos;
                 pos++;
             }else{
-                Comparable numMenor = arreglo[i];
-                Comparable numMayor = arreglo[i-1];
+                int numMenor = arreglo[i];
+                int numMayor = arreglo[i-1];
                 
                 arreglo[i-1] = numMenor;
                 arreglo[i] = numMayor;
@@ -124,16 +124,16 @@ public class Sort {
     }
     
     
-    public Comparable[] mergeSort(Comparable [] arreglo, String texto){    
+    public int[] mergeSort(int [] arreglo, String texto){    
         /**Se crea una variable int cuyo valor es el centro del array, 
          * esto servirá para poder dividir el array con los numero aleatorios
          * en dos.
          */
         int medio = arreglo.length/2;
         
-        Comparable[] mitadIzquierda = new Comparable[medio];
-        Comparable[] mitadDerecha = new Comparable[medio];
-        Comparable[] nuevoOrden = new Comparable[arreglo.length];
+        int[] mitadIzquierda = new int[medio];
+        int[] mitadDerecha = new int[medio];
+        int[] nuevoOrden = new int[arreglo.length];
         
         for(int i = 0; i<medio; i++){
             mitadIzquierda[i] = arreglo[i];
@@ -167,7 +167,7 @@ public class Sort {
             wr = new PrintWriter(bw);
             
             for (int y=0 ; y<nuevoOrden.length; y++){
-                Comparable x = nuevoOrden[y];
+                int x = nuevoOrden[y];
                 wr.println(String.valueOf(x));
             }
         }catch(IOException e){
@@ -176,16 +176,16 @@ public class Sort {
         return null;
     }
     
-    public Comparable[] merge(Comparable[] mitadIzquierda, Comparable[] mitadDerecha){
+    public int[] merge(int[] mitadIzquierda, int[] mitadDerecha){
         int largo = mitadIzquierda.length + mitadDerecha.length;
-        Comparable[] ordenado = new Comparable[largo];
+        int[] ordenado = new int[largo];
         int contadorIzq = 0;
         int contadorDer = 0;
         int contadorOrdenado = 0;
         
         while(contadorIzq < mitadIzquierda.length || contadorDer < mitadDerecha.length){
             if(contadorIzq < mitadIzquierda.length && contadorDer < mitadDerecha.length){
-                if(mitadIzquierda[contadorIzq].compareTo(mitadDerecha[contadorDer])<=0){
+                if(mitadIzquierda[contadorIzq]<=mitadDerecha[contadorDer]){
                     ordenado[contadorOrdenado] = mitadIzquierda[contadorIzq];
                     contadorIzq++;
                     contadorOrdenado++;
@@ -199,7 +199,8 @@ public class Sort {
         return ordenado;
     }
     
-//--------------------------------- QUICK SORT-----------------------------------//
+    
+    //--------------------------------- QUICK SORT-----------------------------------//
     
     public static void intercambiar(int arreglo[], int i, int j) {
     	// ingresa: i<=0, j < arreglo.legth
@@ -231,7 +232,7 @@ public class Sort {
     
     //----METODO QUICKSORT---//
     
-    public static void Quicksort(int[] arreglo){
+    public static void quicksort(int[] arreglo){
     // devuelve: los valores en arreglo[] en orden ascendente
 
     	quickSortRecurrente(arreglo,0,arreglo.length-1);
@@ -251,18 +252,20 @@ public class Sort {
     
     //--------------------------------- FIN QUICK SORT ----------------------------//
 
+ 
+    
     
     public void radixSort(){
         
     }
     
     
-    public void bubbleSort(Comparable[] arreglo, String texto){
+    public void bubbleSort(int[] arreglo, String texto){
         for(int i = 1; i < arreglo.length; i++){
             for(int j = 0; j<arreglo.length-i;j++){
-                if(arreglo[j].compareTo(arreglo[j+1])>0){
-                    Comparable numMayor = arreglo[j];
-                    Comparable numMenor = arreglo[j+1];
+                if(arreglo[j]>arreglo[j+1]){
+                    int numMayor = arreglo[j];
+                    int numMenor = arreglo[j+1];
                     
                 
                     arreglo[j+1] = numMayor;
@@ -294,7 +297,7 @@ public class Sort {
             wr = new PrintWriter(bw);
             
             for (int y=0 ; y<arreglo.length; y++){
-                Comparable x = arreglo[y];
+                int x = arreglo[y];
                 wr.println(String.valueOf(x));
             }
         }catch(IOException e){
