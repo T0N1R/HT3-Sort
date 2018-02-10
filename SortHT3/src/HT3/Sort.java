@@ -8,7 +8,7 @@ import java.io.*;
  * Algoritmos y Estructuras de Datos
  * Hoja de Trabajo 3
  * @author Antonio
- * @author Claude Calewart
+ * @author Claude Calewaert
  */
 public class Sort {
     /**
@@ -199,11 +199,58 @@ public class Sort {
         return ordenado;
     }
     
+//--------------------------------- QUICK SORT-----------------------------------//
     
-    public void quickSort(){
-        
+    public static void intercambiar(int arreglo[], int i, int j) {
+    	// ingresa: i<=0, j < arreglo.legth
+    	// devuelve: intercambio entre i y j
+    	
+    	int temp;
+    	temp = arreglo[i];
+    	arreglo[i] = arreglo[j];
+    	arreglo[j] = temp;
     }
     
+    private static int particion(int arreglo[], int izq, int der) {
+    	// ingresa: izq <= der
+    	// devuelve: arreglo[izq] en la posicion (retornada) correcta
+    	
+    	while (true) {
+
+    		// Mover puntero derecho hacia la izquierda
+    		while (izq < der && arreglo[izq] < arreglo[der]) der--;
+    		if (izq < der) intercambiar(arreglo,izq++,der);
+    		else return izq;
+    		
+    		// Mover puntero izquierdo hacia la derecha
+    		while (der < izq && arreglo[izq] < arreglo[der]) izq--;
+    		if (izq < der) intercambiar(arreglo,izq,der--);
+    		else return der;
+    	}	
+    }
+    
+    //----METODO QUICKSORT---//
+    
+    public static void Quicksort(int[] arreglo){
+    // devuelve: los valores en arreglo[] en orden ascendente
+
+    	quickSortRecurrente(arreglo,0,arreglo.length-1);
+    }
+    
+    private static void quickSortRecurrente(int arreglo[], int izq, int der) {
+    	// ingresa: izquierda <= derecha
+    	// devuelve: arreglo[] en orden ascendente
+    	
+    	int pivote; // la ubicacion final de la variable del extremo izquierdo
+    	if (izq >= der) return;
+    	pivote = particion(arreglo,izq,der); // lugar del pivote
+    	quickSortRecurrente(arreglo, izq, pivote-1);
+    	quickSortRecurrente(arreglo, pivote+1, der);
+    }
+    
+    
+    //--------------------------------- FIN QUICK SORT ----------------------------//
+
     
     public void radixSort(){
         
