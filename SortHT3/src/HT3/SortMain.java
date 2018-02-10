@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  *
  * @author Antonio
- * @author Claude Calewaert
+ * @author Claude Calewart
  */
 public class SortMain {
 
@@ -65,6 +65,12 @@ public class SortMain {
                     main.mergeSort(main.numeros, "texto.txt");
                     break;
                 }
+                
+                case "5":{
+                    System.out.println("Numeros ordenados por Quicksort");
+                }
+                
+                
             }
         }
         
